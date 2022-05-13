@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="Teal">
-        <TabControl Margin="258,0,10,0">
+        <TabControl Background="DarkBlue" Name="TabControl_Main" Margin="258,0,10,0" IsEnabled="False">
             <TabItem Header="1">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
@@ -21,8 +21,9 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-        <Button Content="Załaduj ciąg znaków" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="129"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="130"/>
+        <Button Content="Załaduj ciąg znaków" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="129" Click="Button_Click"/>
+
+        <ListBox Name="stringholder" HorizontalAlignment="Left" Margin="10,46,0,0"  VerticalAlignment="Top" Width="129" Height="301" />
 
     </Grid>
 </Window>
