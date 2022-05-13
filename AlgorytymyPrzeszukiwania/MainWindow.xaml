@@ -7,23 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="Teal">
-        <TabControl Background="DarkBlue" Name="TabControl_Main" Margin="258,0,10,0" IsEnabled="False">
-            <TabItem Header="1">
+        <TabControl Background="DarkBlue" Name="TabControl_Main" Margin="321,75,-53,-75" IsEnabled="False">
+            <TabItem Header="Brute Force">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="2">
+            <TabItem Header="K-M-P">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox HorizontalAlignment="Left" Margin="346,28,0,0" Name="TEXT_time_BF" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+                    <Button Content="Start" Name="btn_start_bf" HorizontalAlignment="Left" Margin="56,37,0,0" VerticalAlignment="Top" Height="20" Width="51" Click="btn_start_bf_Click"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="291,29,0,0" Text="Czas:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Boyera-Moore">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="3">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="4">
+            <TabItem Header="Rabina-Karpa">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-        <Button Content="Załaduj ciąg znaków" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="129" Click="Button_Click"/>
+        <Button Content="Załaduj ciąg znaków" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Height="31" Width="129" Click="Btn_load_Click"/>
 
-        <ListBox Name="stringholder" HorizontalAlignment="Left" Margin="10,46,0,0"  VerticalAlignment="Top" Width="129" Height="301" />
+        <ListBox Name="stringholder" HorizontalAlignment="Left" Margin="10,75,0,0"  VerticalAlignment="Top" Width="129" Height="301" />
+        <TextBox Name="repeatInput" HorizontalAlignment="Left" Margin="184,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Potwierdz" HorizontalAlignment="Left" Margin="184,31,0,0" VerticalAlignment="Top" Height="30" Width="120" Click="btn_repeat_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="188,10,0,0" Text="Podaj ilość powtorzeń" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="400,13,0,0" Text="Ilość powtorzen" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox Name="repeat_value" HorizontalAlignment="Left" Margin="542,18,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="24" IsEnabled="False"/>
 
     </Grid>
 </Window>

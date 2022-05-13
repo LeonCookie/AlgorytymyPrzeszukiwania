@@ -1,9 +1,11 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,8 +31,9 @@ namespace AlgorytymyPrzeszukiwania
 
         //var
         List<String> Lista = new List<String>(); // our list for string
+        int Irepeat = 1;  //repeat count
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Btn_load_Click(object sender, RoutedEventArgs e)
         {
             Lista.Clear();
             stringholder.ItemsSource = "";//
@@ -48,6 +51,37 @@ namespace AlgorytymyPrzeszukiwania
                 stringholder.ItemsSource = Lista;
 
             }
+        }
+
+        private void btn_repeat_Click(object sender, RoutedEventArgs e)
+        {
+            Irepeat = 1;
+            void NumberInput_previewtextinput(object sender, TextCompositionEventArgs e)
+            {
+                e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);// tylko liczby w NumberInput-  ilosc powtorzen
+            }
+            Irepeat = int.Parse(repeatInput.Text);
+            Debug.WriteLine(Irepeat);
+            repeat_value.Text = "" + Irepeat;
+        }
+
+        private void btn_start_bf_Click(object sender, RoutedEventArgs e)
+        {
+            Stopwatch stopwatch = new Stopwatch();//zegar
+
+            stopwatch.Start();
+            //sortowanie
+            
+
+
+
+
+
+            
+            stopwatch.Stop();
+
+
+            TEXT_time_BF.Text = "" + stopwatch.ElapsedMilliseconds;
         }
     }
 }
