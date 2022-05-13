@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorytymyPrzeszukiwania", "AlgorytymyPrzeszukiwania\AlgorytymyPrzeszukiwania.csproj", "{34B34B2D-168A-40BE-997B-A21B1FDB6DFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34B34B2D-168A-40BE-997B-A21B1FDB6DFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34B34B2D-168A-40BE-997B-A21B1FDB6DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34B34B2D-168A-40BE-997B-A21B1FDB6DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34B34B2D-168A-40BE-997B-A21B1FDB6DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1499FCEF-86BE-4B1E-AD2A-55672F765F53}
+	EndGlobalSection
+EndGlobal
