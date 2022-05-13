@@ -33,8 +33,9 @@ namespace AlgorytymyPrzeszukiwania
         List<String> Lista = new List<String>(); // our list for string
         int Irepeat = 1;  //repeat count
         string SSsearch;// searching value
+        int Hmany = 0;
 
-    
+
 
         private void Btn_load_Click(object sender, RoutedEventArgs e)
         {
@@ -52,7 +53,7 @@ namespace AlgorytymyPrzeszukiwania
                         Lista.Add(s);  //sam nwm
                 }
                 stringholder.ItemsSource = Lista;
-
+                string[] STable = Lista.ToArray();//MAKE TABLE TO LISt
             }
         }
 
@@ -65,14 +66,17 @@ namespace AlgorytymyPrzeszukiwania
             }
             Irepeat = int.Parse(repeatInput.Text);
             Debug.WriteLine(Irepeat);
-            repeat_value.Text = "" + Irepeat;
+            repeatInput.Text = "";
+            repeatInput.Text = "" + Irepeat;
+            MessageBox.Show("twoja liczba powtorzen: " + Irepeat);
         }
 
         private void btn_start_bf_Click(object sender, RoutedEventArgs e)
         {
 
 
-            if (String.IsNullOrEmpty(SearchInput.Text)){
+            if (String.IsNullOrEmpty(SearchInput.Text))
+            {
                 MessageBox.Show("Uzupełnij pole z szukaną!");
             }
             else
@@ -82,12 +86,11 @@ namespace AlgorytymyPrzeszukiwania
                 stopwatch.Start();
                 //sorting(brutalforce)
                 SSsearch = SearchInput.Text;
-                
+                stringholder.ItemsSource = Lista;
 
-                for (int l = 0; l < Irepeat; l++)
-                {
 
-                }
+
+
 
 
 
@@ -129,6 +132,54 @@ MNAYWCOMUZ
 THYQVMAIDE
 FUDLLSTBVD
 IKOV */
+        }
+
+        private void btn_start_kmp_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            if (String.IsNullOrEmpty(SearchInput_KMP.Text))
+            {
+                MessageBox.Show("Uzupełnij pole z szukaną!");
+            }
+            else
+            {
+                Stopwatch stopwatch = new Stopwatch();//timer
+
+                stopwatch.Start();
+                //sorting(brute force)
+               
+
+                /*
+                pp = b = 0;
+                for (i = 0; i < N; i++)
+                {
+                    while ((b > -1) && (p[b] != s[i])) b = KMPNext[b];
+                    if (++b == M)
+                    {
+                        while (pp < i - b + 1)
+                        {
+                            cout << " "; pp++;
+                        }
+                        cout << "^"; pp++;
+                        b = KMPNext[b];
+                    }
+                }
+                */
+
+
+
+
+
+
+
+
+                stopwatch.Stop();
+
+
+                TEXT_time_KMF.Text = "" + stopwatch.ElapsedMilliseconds;
+
+            }
         }
     }
 }

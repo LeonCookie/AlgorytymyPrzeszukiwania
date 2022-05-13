@@ -12,13 +12,32 @@
 
             <TabItem Header="Brute Force">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox HorizontalAlignment="Left" Margin="245,19,0,0" Name="TEXT_time_BF" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="365*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox HorizontalAlignment="Left" Margin="124,11,0,0" Name="TEXT_time_BF" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" Grid.Column="1" RenderTransformOrigin="0.458,0.561"/>
                     <Button Content="Start" Name="btn_start_bf" HorizontalAlignment="Left" Margin="38,71,0,0" VerticalAlignment="Top" Height="20" Width="51" Click="btn_start_bf_Click"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="190,11,0,0" Text="Czas:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="92,11,0,0" Text="Czas:" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="SearchInput" HorizontalAlignment="Left" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="17,16,0,0" Text="Podaj szukaną" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="106" RenderTransformOrigin="0.481,0.44" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="K-M-P">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*"/>
+                        <ColumnDefinition Width="426*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Button Content="Start" x:Name="btn_start_kmp" HorizontalAlignment="Left" Margin="18,67,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="btn_start_kmp_Click" Grid.ColumnSpan="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="18,10,0,0" Text="Podaj szukana" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox  Name="SearchInput_KMP"  Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="27,31,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="195,5,0,0" Text="Czas:" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox  Name="TEXT_time_KMF" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="242,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.422,0.447"/>
+
+                </Grid>
             </TabItem>
             <TabItem Header="Boyera-Moore">
                 <Grid Background="#FFE5E5E5"/>
@@ -29,14 +48,12 @@
         </TabControl>
         <Button Content="Załaduj ciąg znaków" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Height="31" Width="129" Click="Btn_load_Click"/>
 
-        <ListBox Name="stringholder" HorizontalAlignment="Left" Margin="10,95,0,0"  VerticalAlignment="Top" Width="129" Height="301" />
+        <ListBox Name="stringholder" HorizontalAlignment="Left" Margin="10,95,0,0"  VerticalAlignment="Top" Width="129" Height="301" >
+
+        </ListBox>
         <TextBox Name="repeatInput" HorizontalAlignment="Left" Margin="184,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" Height="18"/>
         <Button Content="Potwierdz" HorizontalAlignment="Left" Margin="184,31,0,0" VerticalAlignment="Top" Height="31" Width="116" Click="btn_repeat_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="188,67,0,0" Text="Podaj ilość powtorzeń" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="112"/>
-        <TextBlock HorizontalAlignment="Left" Margin="400,13,0,0" Text="Ilość powtorzen" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox Name="repeat_value" HorizontalAlignment="Left" Margin="542,18,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="24" IsEnabled="False"/>
-        <TextBox x:Name="SearchInput" HorizontalAlignment="Left" Margin="329,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="336,118,0,0" Text="Podaj szukaną" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="106"/>
 
 
     </Grid>
