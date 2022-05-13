@@ -32,6 +32,9 @@ namespace AlgorytymyPrzeszukiwania
         //var
         List<String> Lista = new List<String>(); // our list for string
         int Irepeat = 1;  //repeat count
+        string SSsearch;// searching value
+
+    
 
         private void Btn_load_Click(object sender, RoutedEventArgs e)
         {
@@ -67,21 +70,38 @@ namespace AlgorytymyPrzeszukiwania
 
         private void btn_start_bf_Click(object sender, RoutedEventArgs e)
         {
-            Stopwatch stopwatch = new Stopwatch();//zegar
 
-            stopwatch.Start();
-            //sortowanie
+
+            if (String.IsNullOrEmpty(SearchInput.Text)){
+                MessageBox.Show("Uzupełnij pole z szukaną!");
+            }
+            else
+            {
+                Stopwatch stopwatch = new Stopwatch();//timer
+
+                stopwatch.Start();
+                //sorting(brutalforce)
+                SSsearch = SearchInput.Text;
+                
+
+                for (int l = 0; l < Irepeat; l++)
+                {
+
+                }
+
+
+
+
+
+
+                stopwatch.Stop();
+
+
+                TEXT_time_BF.Text = "" + stopwatch.ElapsedMilliseconds;
+            }
             
 
-
-
-
-
             
-            stopwatch.Stop();
-
-
-            TEXT_time_BF.Text = "" + stopwatch.ElapsedMilliseconds;
         }
     }
 }
