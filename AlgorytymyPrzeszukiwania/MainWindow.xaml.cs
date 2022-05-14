@@ -164,5 +164,18 @@ namespace AlgorytymyPrzeszukiwania
 
             }
         }
+
+
+        private void btn_start_BM_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_start_RK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
     }
 }

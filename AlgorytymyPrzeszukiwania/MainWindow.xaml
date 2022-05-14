@@ -45,13 +45,19 @@
                     <TextBlock HorizontalAlignment="Left" Margin="17,16,0,0" Text="Podaj szukaną" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="106" RenderTransformOrigin="0.481,0.44" Grid.ColumnSpan="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="195,5,0,0" Text="Czas:" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
 
-                    <Button Content="start" HorizontalAlignment="Left" Margin="34,89,0,0" VerticalAlignment="Top" Name="btn_start_BM" RenderTransformOrigin="0.366,0.589" Width="52"/>
+                    <Button Content="start" HorizontalAlignment="Left" Margin="34,89,0,0" VerticalAlignment="Top" Name="btn_start_BM" RenderTransformOrigin="0.366,0.589" Width="52" Click="btn_start_BM_Click"/>
                     <TextBox Name="SearchInput_BM" HorizontalAlignment="Left" Margin="17,51,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.551,0.569"/>
                     <TextBox HorizontalAlignment="Left" Margin="232,5,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="TEXT_time_BM"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Rabina-Karpa">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock HorizontalAlignment="Left" Margin="17,16,0,0" Text="Podaj szukaną" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="106" RenderTransformOrigin="0.481,0.44" Grid.ColumnSpan="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="195,5,0,0" Text="Czas:" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button Name="btn_start_RK" Content="Start" HorizontalAlignment="Left" Margin="49,80,0,0" VerticalAlignment="Top" Click="btn_start_RK_Click"/>
+                    <TextBox  Name ="TEXT_time_RK" HorizontalAlignment="Left" Margin="232,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="SearchInput_RK" HorizontalAlignment="Left" Margin="17,37,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                </Grid>
             </TabItem>
         </TabControl>
         <Button Content="Załaduj ciąg znaków" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Height="31" Width="129" Click="Btn_load_Click"/>
