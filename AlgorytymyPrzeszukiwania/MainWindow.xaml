@@ -33,9 +33,9 @@
 
                     <Button Content="Start" x:Name="btn_start_kmp" HorizontalAlignment="Left" Margin="18,67,0,0" VerticalAlignment="Top" Height="20" Width="52" Click="btn_start_kmp_Click" Grid.ColumnSpan="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="18,10,0,0" Text="Podaj szukana" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <TextBox  Name="SearchInput_KMP"  Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="27,31,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SearchInput_KMP_TextChanged"/>
+                    <TextBox  Name="SearchInput_KMP"  Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="27,31,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <TextBlock HorizontalAlignment="Left" Margin="195,5,0,0" Text="Czas:" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox  Name="TEXT_time_KMF" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="242,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.422,0.447"/>
+                    <TextBox  IsEnabled="False" Name="TEXT_time_KMF" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="242,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.422,0.447"/>
 
                 </Grid>
             </TabItem>
@@ -47,7 +47,7 @@
 
                     <Button Content="start" HorizontalAlignment="Left" Margin="34,89,0,0" VerticalAlignment="Top" Name="btn_start_BM" RenderTransformOrigin="0.366,0.589" Width="52" Click="btn_start_BM_Click"/>
                     <TextBox Name="SearchInput_BM" HorizontalAlignment="Left" Margin="17,51,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.551,0.569"/>
-                    <TextBox HorizontalAlignment="Left" Margin="232,5,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="TEXT_time_BM"/>
+                    <TextBox IsEnabled="False"  HorizontalAlignment="Left" Margin="232,5,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="TEXT_time_BM"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Rabina-Karpa">
@@ -56,7 +56,7 @@
                     <TextBlock HorizontalAlignment="Left" Margin="195,5,0,0" Text="Czas:" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
                     <Button Name="btn_start_RK" Content="Start" HorizontalAlignment="Left" Margin="49,80,0,0" VerticalAlignment="Top" Click="btn_start_RK_Click"/>
                     <TextBox  Name ="TEXT_time_RK" HorizontalAlignment="Left" Margin="232,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox Name="SearchInput_RK" HorizontalAlignment="Left" Margin="17,37,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox IsEnabled="False"  Name="SearchInput_RK" HorizontalAlignment="Left" Margin="17,37,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
         </TabControl>

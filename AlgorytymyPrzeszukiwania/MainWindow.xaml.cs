@@ -33,7 +33,7 @@ namespace AlgorytymyPrzeszukiwania
         List<String> Lista = new List<String>(); // our list for string
         int Irepeat = 1;  //repeat count
         string SSsearch;// searching value
-        int Hmany = 0;
+        
         string[] sTable;
 
 
@@ -159,7 +159,7 @@ namespace AlgorytymyPrzeszukiwania
 
                 stopwatch.Stop();
 
-
+                
                 TEXT_time_KMF.Text = "" + stopwatch.ElapsedMilliseconds;
 
             }
@@ -168,13 +168,89 @@ namespace AlgorytymyPrzeszukiwania
 
         private void btn_start_BM_Click(object sender, RoutedEventArgs e)
         {
-
+            //https://www.programmingalgorithms.com/algorithm/boyer–moore-string-search-algorithm/
         }
 
         private void btn_start_RK_Click(object sender, RoutedEventArgs e)
         {
+            int sum = 0;
+
+            int[] SearchString(string A, string B)
+            {
+                sum = 0;
+                List<int> retVal = new List<int>();
+                ulong siga = 0;
+                ulong sigb = 0;
+                ulong Q = 100007;
+                ulong D = 256;
+
+                for (int i = 0; i < B.Length; ++i)
+                {
+                    siga = (siga * D + (ulong)A[i]) % Q;
+                    sigb = (sigb * D + (ulong)B[i]) % Q;
+                }
+
+                if (siga == sigb)
+                    retVal.Add(0);
+
+                ulong pow = 1;
+
+                for (int k = 1; k <= B.Length - 1; ++k)
+                    pow = (pow * D) % Q;
+
+                for (int j = 1; j <= A.Length - B.Length; ++j)
+                {
+                    siga = (siga + Q - pow * (ulong)A[j - 1] % Q) % Q;
+                    siga = (siga * D + (ulong)A[j + B.Length - 1]) % Q;
+
+                    if (siga == sigb)
+                        if (A.Substring(j, B.Length) == B)
+                            retVal.Add(j);
+                    sum += 1;
+
+                }
+
+                Debug.WriteLine(retVal);
+                return retVal.ToArray();
+            }
+            
+            Stopwatch stopwatch = new Stopwatch();//timer
+
+            string lancuch = String.Join("", Lista.ToArray());
+
+            SSsearch = SearchInput_RK.Text;
+            stopwatch.Start();
+          
+
+            for (int i=1; Irepeat > 0; i++)
+            {
+                
+                int[] value = SearchString(lancuch, SSsearch);
+                
+            }
+            stopwatch.Stop();
+
+            TEXT_time_RK.Text = "" + stopwatch.ElapsedMilliseconds;
+            Debug.WriteLine(sum);
+            MessageBox.Show("znalenizono:" + sum.ToString() + " razy");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
+        
 
         
     }
