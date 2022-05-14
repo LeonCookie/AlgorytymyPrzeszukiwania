@@ -94,14 +94,18 @@ namespace AlgorytymyPrzeszukiwania
             else
             {
                 Stopwatch stopwatch = new Stopwatch();//timer
-
-                stopwatch.Start();
-                //sorting(brutalforce)
                 SSsearch = SearchInput.Text;
                 stringholder.ItemsSource = Lista;
                 Debug.WriteLine("LIsta:");
-              
 
+                stopwatch.Start();
+                //sorting(brutalforce)
+                
+
+                for (int i = 1; Irepeat > 0; i++)
+                {
+
+                }
 
 
 
@@ -145,9 +149,12 @@ namespace AlgorytymyPrzeszukiwania
                 Debug.WriteLine(Nsearch);
                 Debug.WriteLine(Mlist);
 
-      
-               
 
+
+                for (int i = 1; Irepeat > 0; i++)
+                {
+
+                }
 
 
 
@@ -169,82 +176,97 @@ namespace AlgorytymyPrzeszukiwania
         private void btn_start_BM_Click(object sender, RoutedEventArgs e)
         {
             //https://www.programmingalgorithms.com/algorithm/boyer–moore-string-search-algorithm/
+
+            if (String.IsNullOrEmpty(SearchInput_BM.Text))
+            {
+                MessageBox.Show("Uzupełnij pole z szukaną!");
+            }
+            else
+            {
+                for (int i = 1; Irepeat > 0; i++)
+                {
+
+                }
+            }
+            
+
         }
+
 
         private void btn_start_RK_Click(object sender, RoutedEventArgs e)
         {
-            int sum = 0;
 
-            int[] SearchString(string A, string B)
+            
+
+                int sum = 0;
+            if (String.IsNullOrEmpty(SearchInput_RK.Text))
             {
-                sum = 0;
-                List<int> retVal = new List<int>();
-                ulong siga = 0;
-                ulong sigb = 0;
-                ulong Q = 100007;
-                ulong D = 256;
+                MessageBox.Show("Uzupełnij pole z szukaną!");
+            }
+            else
+            {
 
-                for (int i = 0; i < B.Length; ++i)
+
+                int[] SearchString(string A, string B)
                 {
-                    siga = (siga * D + (ulong)A[i]) % Q;
-                    sigb = (sigb * D + (ulong)B[i]) % Q;
-                }
+                    sum = 0;
+                    List<int> retVal = new List<int>();
+                    ulong siga = 0;
+                    ulong sigb = 0;
+                    ulong Q = 100007;
+                    ulong D = 256;
 
-                if (siga == sigb)
-                    retVal.Add(0);
-
-                ulong pow = 1;
-
-                for (int k = 1; k <= B.Length - 1; ++k)
-                    pow = (pow * D) % Q;
-
-                for (int j = 1; j <= A.Length - B.Length; ++j)
-                {
-                    siga = (siga + Q - pow * (ulong)A[j - 1] % Q) % Q;
-                    siga = (siga * D + (ulong)A[j + B.Length - 1]) % Q;
+                    for (int i = 0; i < B.Length; ++i)
+                    {
+                        siga = (siga * D + (ulong)A[i]) % Q;
+                        sigb = (sigb * D + (ulong)B[i]) % Q;
+                    }
 
                     if (siga == sigb)
-                        if (A.Substring(j, B.Length) == B)
-                            retVal.Add(j);
-                    sum += 1;
+                        retVal.Add(0);
 
+                    ulong pow = 1;
+
+                    for (int k = 1; k <= B.Length - 1; ++k)
+                        pow = (pow * D) % Q;
+
+                    for (int j = 1; j <= A.Length - B.Length; ++j)
+                    {
+                        siga = (siga + Q - pow * (ulong)A[j - 1] % Q) % Q;
+                        siga = (siga * D + (ulong)A[j + B.Length - 1]) % Q;
+
+                        if (siga == sigb)
+                            if (A.Substring(j, B.Length) == B)
+                                retVal.Add(j);
+                        sum += 1;
+
+                    }
+
+                    Debug.WriteLine(retVal);
+                    return retVal.ToArray();
                 }
 
-                Debug.WriteLine(retVal);
-                return retVal.ToArray();
+                Stopwatch stopwatch = new Stopwatch();//timer
+
+                string lancuch = String.Join("", Lista.ToArray());
+
+                SSsearch = SearchInput_RK.Text;
+                stopwatch.Start();
+
+
+                for (int i = 1; Irepeat > 0; i++)
+                {
+
+                    int[] value = SearchString(lancuch, SSsearch);
+
+                }
+                stopwatch.Stop();
+
+                TEXT_time_RK.Text = "" + stopwatch.ElapsedMilliseconds;
+                Debug.WriteLine(sum);
+                MessageBox.Show("znalenizono:" + sum.ToString() + " razy");
+
             }
-            
-            Stopwatch stopwatch = new Stopwatch();//timer
-
-            string lancuch = String.Join("", Lista.ToArray());
-
-            SSsearch = SearchInput_RK.Text;
-            stopwatch.Start();
-          
-
-            for (int i=1; Irepeat > 0; i++)
-            {
-                
-                int[] value = SearchString(lancuch, SSsearch);
-                
-            }
-            stopwatch.Stop();
-
-            TEXT_time_RK.Text = "" + stopwatch.ElapsedMilliseconds;
-            Debug.WriteLine(sum);
-            MessageBox.Show("znalenizono:" + sum.ToString() + " razy");
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
