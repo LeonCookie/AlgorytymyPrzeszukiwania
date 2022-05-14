@@ -34,6 +34,8 @@ namespace AlgorytymyPrzeszukiwania
         int Irepeat = 1;  //repeat count
         string SSsearch;// searching value
         int Hmany = 0;
+        string[] sTable;
+
 
 
 
@@ -50,12 +52,22 @@ namespace AlgorytymyPrzeszukiwania
                 {
                     var s = string.Empty;
                     while ((s = streamReader.ReadLine()) != null)
-                        Lista.Add(s);  //sam nwm
+                        Lista.Add(s);  
                 }
                 stringholder.ItemsSource = Lista;
-                string[] STable = Lista.ToArray();//MAKE TABLE TO LISt
+                Lista.ForEach(x => Debug.WriteLine(x));// write Lista in Debug window for check
+                sTable = Lista.ToArray();// change list to array
+                Debug.WriteLine("===========================");
+                for (int i = 0; i < sTable.Length; i++)
+                {
+                    Debug.WriteLine(sTable[i]);
+                }// write sTable in Debug window
+
+
             }
+            
         }
+
 
         private void btn_repeat_Click(object sender, RoutedEventArgs e)
         {
@@ -87,12 +99,8 @@ namespace AlgorytymyPrzeszukiwania
                 //sorting(brutalforce)
                 SSsearch = SearchInput.Text;
                 stringholder.ItemsSource = Lista;
-
-
-
-
-
-
+                Debug.WriteLine("LIsta:");
+              
 
 
 
@@ -104,34 +112,7 @@ namespace AlgorytymyPrzeszukiwania
             }
 
 
-            /*
-             * MZTQIUMCCF
-AEUCUQQZXM
-LXZMDRFRTH
-SATGEUZMRS
-PTGYVVLEZY
-QJKIWZQILM
-PDWMMXVZLU
-JXJXXERDSL
-QVSCCYWESR
-MIUJKMQORA
-KQJSHHCQOJ
-WPDVUORLXP
-NQSRIMAXHM
-ZSWPBLWIRZ
-XYAPDRYABP
-LVEJHUQBAS
-ZXCBHTLTPT
-WGJTQZRAIU
-QOPUTPLVPU
-HYDZDYOWRR
-ZNPLYXWBFP
-UKVIVHLFAO
-OAIZBFOPZQ
-MNAYWCOMUZ
-THYQVMAIDE
-FUDLLSTBVD
-IKOV */
+      
         }
 
         private void btn_start_kmp_Click(object sender, RoutedEventArgs e)
@@ -144,28 +125,30 @@ IKOV */
             }
             else
             {
+                SSsearch = SearchInput.Text;
+                stringholder.ItemsSource = Lista;
+
+                string lancuch = String.Join("", Lista.ToArray());
+                Debug.WriteLine(lancuch);
+
+               
+                int Nsearch = SSsearch.Length; // lenght of searched
+                int Mlist = sTable.Length; //lenght of table
+
+                int Mlista1 = Mlist + 1;
+
+
                 Stopwatch stopwatch = new Stopwatch();//timer
 
                 stopwatch.Start();
-                //sorting(brute force)
+
+                Debug.WriteLine(Nsearch);
+                Debug.WriteLine(Mlist);
+
+      
                
 
-                /*
-                pp = b = 0;
-                for (i = 0; i < N; i++)
-                {
-                    while ((b > -1) && (p[b] != s[i])) b = KMPNext[b];
-                    if (++b == M)
-                    {
-                        while (pp < i - b + 1)
-                        {
-                            cout << " "; pp++;
-                        }
-                        cout << "^"; pp++;
-                        b = KMPNext[b];
-                    }
-                }
-                */
+
 
 
 
