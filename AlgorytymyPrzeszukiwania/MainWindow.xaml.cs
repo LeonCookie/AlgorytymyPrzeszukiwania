@@ -63,14 +63,20 @@ namespace AlgorytymyPrzeszukiwania
             
         }
 
-
+      
+        private void repeatInput_previewtextinput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);// tylko liczby w NumberInput-  ilosc powtorzen
+        }
+        private void repeatInput_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);// tylko liczby w NumberInput-  ilosc powtorzen
+        }
         private void btn_repeat_Click(object sender, RoutedEventArgs e)
         {
             Irepeat = 1;
-            void NumberInput_previewtextinput(object sender, TextCompositionEventArgs e)
-            {
-                e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);// tylko liczby w NumberInput-  ilosc powtorzen
-            }
+           
+            
             Irepeat = int.Parse(repeatInput.Text);
             repeatInput.Text = "";
             repeatInput.Text = "" + Irepeat;
@@ -104,31 +110,41 @@ namespace AlgorytymyPrzeszukiwania
                 char[] daneChar= dane.ToCharArray();
 
                 int textIndex = 0;
-                Hmany = 0;
+                
 
-                //magia ktorej nie rozumiem
-                for (textIndex = 0; textIndex < DaneLong; textIndex++)
+
+               
+               
+                for (int k = 0; k < Irepeat; k++)
                 {
-                    int textIndexLocal = textIndex;
-                    Boolean match = true;
-                    int matchedIndex = textIndex;
-                    for (int patternIndex = 0; patternIndex < SearchLong; patternIndex++)
+                    Debug.WriteLine("start");
+                    Hmany = 0;
+
+                    for (textIndex = 0; textIndex < DaneLong; textIndex++)
                     {
-                        if (daneChar[textIndexLocal] != SearchChar[patternIndex])
+                       
+                        int textIndexLocal = textIndex;
+                        Boolean match = true;
+                        int matchedIndex = textIndex;
+                        for (int patternIndex = 0; patternIndex < SearchLong; patternIndex++)
                         {
-                            match = false;
-                            break;
+                            if (daneChar[textIndexLocal] != SearchChar[patternIndex])
+                            {
+                                match = false;
+                                break;
+                                Debug.WriteLine("brake");
+                            }
+                            textIndexLocal = textIndexLocal + 1;
                         }
-                        textIndexLocal = textIndexLocal + 1;
+                        if (match)
+                        {
+                            Hmany++;
+                        }
                     }
-                    if (match)
-                    {
-                        Hmany++;
-                    }
+                    Debug.WriteLine("koniec");
                 }
 
-     
-                
+
 
 
 
@@ -136,7 +152,7 @@ namespace AlgorytymyPrzeszukiwania
 
                 stopwatch.Stop();
                 
-                MessageBox.Show("znaleznion" + Hmany);
+                MessageBox.Show("znalezniono " + Hmany);
 
 
                 TEXT_time_BF.Text = "" + stopwatch.ElapsedMilliseconds;
@@ -170,9 +186,9 @@ namespace AlgorytymyPrzeszukiwania
                 stopwatch.Start();
 
 
-                for (int k = 1; k < Irepeat; k++)
+                for (int k = 0; k < Irepeat; k++)
                 {
-
+                    
                 }
 
 
@@ -206,7 +222,7 @@ namespace AlgorytymyPrzeszukiwania
                 stopwatch.Start();
 
 
-                for (int k = 1; k < Irepeat; k++)
+                for (int k = 0; k < Irepeat; k++)
                 {
 
                 }
@@ -252,7 +268,7 @@ namespace AlgorytymyPrzeszukiwania
                 SSsearch = SearchInput_RK.Text;
                 stopwatch.Start();
 
-                for (int k = 1; k < Irepeat; k++)
+                for (int k = 0; k < Irepeat; k++)
                 {
 
                 }
@@ -269,7 +285,6 @@ namespace AlgorytymyPrzeszukiwania
 
 
         }
-        
 
         
     }
