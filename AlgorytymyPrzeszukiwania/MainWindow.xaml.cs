@@ -95,21 +95,39 @@ namespace AlgorytymyPrzeszukiwania
                 //sorting(brutalforce)
 
 
+
+
+                int SearchLong = SSsearch.Length;
+                int DaneLong = dane.Length;
+
+                char[]  SearchChar= SSsearch.ToCharArray();
+                char[] daneChar= dane.ToCharArray();
+
+                int textIndex = 0;
                 Hmany = 0;
 
-                for (int k = 1; k<  Irepeat ; k++)
+                //magia ktorej nie rozumiem
+                for (textIndex = 0; textIndex < DaneLong; textIndex++)
                 {
-                        for(int i=0; i < dane.Length; i++)
+                    int textIndexLocal = textIndex;
+                    Boolean match = true;
+                    int matchedIndex = textIndex;
+                    for (int patternIndex = 0; patternIndex < SearchLong; patternIndex++)
+                    {
+                        if (daneChar[textIndexLocal] != SearchChar[patternIndex])
                         {
-                            for (int j = 0; j < SSsearch.Length; j++)
-                            {
-                            if (dane[i + j] != SSsearch[j])
-                                {
-                                Hmany += 1;
-                                }
-                            }
+                            match = false;
+                            break;
                         }
+                        textIndexLocal = textIndexLocal + 1;
+                    }
+                    if (match)
+                    {
+                        Hmany++;
+                    }
                 }
+
+     
                 
 
 
