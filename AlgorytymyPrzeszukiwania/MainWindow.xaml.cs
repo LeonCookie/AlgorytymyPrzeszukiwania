@@ -34,6 +34,7 @@ namespace AlgorytymyPrzeszukiwania
         int Irepeat = 1;  //repeat count
         string SSsearch;// searching value
         string dane;// main string
+        string[] lines;
 
 
 
@@ -51,8 +52,11 @@ namespace AlgorytymyPrzeszukiwania
                 using (var streamReader = File.OpenText(openFileDialog.FileName))// czytanie z pliku
                 {
                     dane = System.IO.File.ReadAllText(openFileDialog.FileName);
+                     lines= System.IO.File.ReadAllLines(openFileDialog.FileName);
+
                 }
                 stringholder.ItemsSource = dane;
+               
                 
 
 
@@ -209,7 +213,12 @@ namespace AlgorytymyPrzeszukiwania
 
         private void btn_start_BM_Click(object sender, RoutedEventArgs e)
         {
-            //https://www.programmingalgorithms.com/algorithm/boyer–moore-string-search-algorithm/
+
+
+
+
+            int bmResult = 0 ;
+            
 
             if (String.IsNullOrEmpty(SearchInput_BM.Text))
             {
@@ -217,29 +226,82 @@ namespace AlgorytymyPrzeszukiwania
             }
             else
             {
-                Stopwatch stopwatch = new Stopwatch();//timer
-
-                stopwatch.Start();
-
-
-                for (int k = 0; k < Irepeat; k++)
+                 static int[] BuildBadCharTable2(char[] needle)
                 {
+                    int[] badShift = new int[256];
+                    for (int i = 0; i < 256; i++)
+                    {
+                        badShift[i] = needle.Length;
+                    }
+                    int last = needle.Length - 1;
+                    for (int i = 0; i < last; i++)
+                    {
+                        badShift[(int)needle[i]] = last - i;
+                    }
+                    return badShift;
+                }
 
+
+
+                 static int BoyerMoore(String pattern, String text)
+                {
+                    char[] needle = pattern.ToCharArray();
+                    char[] haystack = text.ToCharArray();
+
+                    if (needle.Length > haystack.Length)
+                    {
+                        return -1;
+                    }
+                    int[] badShift = BuildBadCharTable2(needle);
+                    int offset = 0;
+                    int scan = 0;
+                    int last = needle.Length - 1;
+                    int maxoffset = haystack.Length - needle.Length;
+                    while (offset <= maxoffset)
+                    {
+                        for (scan = last; (needle[scan] == haystack[scan + offset]); scan--)
+                        {
+                            if (scan == 0)
+                            { //Match found
+                                return offset;
+                            }
+                        }
+                        offset += badShift[(int)haystack[offset + last]];
+                    }
+                    return -1;
                 }
 
 
 
 
+               
+
+
+                Stopwatch stopwatch = new Stopwatch();//timer
 
 
 
+                    for (int k = 0; k < Irepeat; k++)
+                {
+               
 
-                stopwatch.Stop();
+                    stopwatch.Start();
+                    char[] SearchChar = SSsearch.ToCharArray();
+                    char[] daneChar = dane.ToCharArray();
+                    bmResult = BoyerMoore(SSsearch, dane);
+                   
 
+
+
+                }
+                    stopwatch.Stop();
 
                 TEXT_time_BM.Text = "" + stopwatch.ElapsedMilliseconds;
+                MessageBox.Show("znalezniono " + bmResult);
+
+
             }
-            
+           
 
         }
 
@@ -247,9 +309,9 @@ namespace AlgorytymyPrzeszukiwania
         private void btn_start_RK_Click(object sender, RoutedEventArgs e)
         {
 
-            
 
-                int sum = 0;
+
+            Hmany = 0;
             if (String.IsNullOrEmpty(SearchInput_RK.Text))
             {
                 MessageBox.Show("Uzupełnij pole z szukaną!");
@@ -258,26 +320,27 @@ namespace AlgorytymyPrzeszukiwania
             {
 
 
-               
-                
 
+
+                Hmany = 0;
                 Stopwatch stopwatch = new Stopwatch();//timer
-
-               
-
-                SSsearch = SearchInput_RK.Text;
                 stopwatch.Start();
+
 
                 for (int k = 0; k < Irepeat; k++)
                 {
 
                 }
 
-                stopwatch.Stop();
+
+
+
+
+
+                    stopwatch.Stop();
 
                 TEXT_time_RK.Text = "" + stopwatch.ElapsedMilliseconds;
-                Debug.WriteLine(sum);
-                MessageBox.Show("znalenizono:" + sum.ToString() + " razy");
+                MessageBox.Show("znalenizono:" + Hmany + " razy");
 
             }
 

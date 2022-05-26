@@ -56,7 +56,7 @@
                     <TextBlock HorizontalAlignment="Left" Margin="195,5,0,0" Text="Czas:" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
                     <Button Name="btn_start_RK" Content="Start" HorizontalAlignment="Left" Margin="49,80,0,0" VerticalAlignment="Top" Click="btn_start_RK_Click"/>
                     <TextBox  Name ="TEXT_time_RK" HorizontalAlignment="Left" Margin="232,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox IsEnabled="False"  Name="SearchInput_RK" HorizontalAlignment="Left" Margin="17,37,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox  Name="SearchInput_RK" HorizontalAlignment="Left" Margin="17,37,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
                 </Grid>
             </TabItem>
         </TabControl>
